@@ -1,0 +1,341 @@
+body {
+
+	font-family: "Arial" ;
+	background-color: hsl(120,100%,99%) ;
+}
+
+#wrapper {
+
+	margin: auto;
+	width: 100%;
+	padding: 20px;
+	/*border: 1px solid orange ;*/
+	padding-top: 30px ;
+}
+
+#keep { /* button to abort replace the existing routing
+	
+		lives above the form.  If there is NO routing, need to hide this */
+
+	margin-bottom: 20px;
+}
+
+#repl_fm { /* <div> containing the form to replace [or get 1st ever] routing */
+
+	width: 80%;
+	height: 220px;
+	/*border: 1px solid green;*/
+	margin-left: 40px;
+
+	position: relative;
+	top: 19px;
+}
+
+
+textarea {
+
+	border: 1px solid;
+	margin-bottom: 30px;
+}
+
+table#key {
+	
+	border-collapse: collapse;	
+}
+
+th {
+
+	padding: 5px;
+	padding-left: 30px;
+	font-weight: bolder;
+	padding-right: 25px;
+
+	border-top: 1px dotted black;
+	border-left: 1px dotted black;
+}
+
+#row1 th:nth-child(1) , #row2 th:nth-child(1) , #row2 th:nth-child(6) {
+	border: none;
+}
+
+#row1 th:nth-child(6) {
+	border-top: none;
+}
+
+#row2 th:nth-child(2) , #row2 th:nth-child(3) , #row2 th:nth-child(4) {
+
+	border-bottom: 1px dotted black;
+}
+
+#row1 th:nth-child(7) , #row2 th:nth-child(8) {
+
+	border: 2px solid black;
+}
+
+#row1 th:nth-child(8)  {
+
+	border-top: 2px solid black;
+	border-right: 2px solid black;
+}
+
+#row2 th:nth-child(7) {
+
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+
+}
+
+#row1 th:nth-child(1) , #row1 th:nth-child(6) {
+
+	font-size: larger;
+}
+
+ul {
+
+	float: left;   
+	width: 6px;
+	/*background-color: grey;*/
+}
+
+li {
+	list-style-type: none;
+
+	display: block;
+	width: 13px;  
+	padding: 0.5em 1em; /* this facilitates text in the middle of a good, square block */
+
+	border: 1px dotted black;
+	text-align: center;
+	background-color: white;
+	
+	opacity: 1; /* shows the full CSS formatting from "underneath" its <ul> parent */
+}
+
+/*
+
+"Fight the enemy where it ISN'T"
+
+Some elements and ids have to pull out of their position
+
+Need for this derives initially from
+
+	the "arcane" method of lining up the <li> s
+
+		causing the parent <ul> to be twice the width [child <li> s floating right in them].
+
+		The side effect of this is that <ul> s end up sitting over some | all
+
+			of the <li> s in the previous <ul> - "obscuring" them, making them unclickable.
+
+		Any attempt to "fix" any of the above is roundly defeated by "CSS chaos"
+
+			so we have to take the <li> s out of the DOM, 
+
+				moving them down, out of the way of the <ul> s:-
+
+				To allow for a potential 20 drops on a van, 
+
+					we move them down 900 px
+
+*/
+
+table#key , li  {
+	position: relative;
+	top: 933px; /* (was 900) */
+}
+
+table#key {
+	left: 180px;
+
+	font-size: larger;
+}
+
+#new_routing {
+
+	position: relative;
+	top: 963px; /* was 930px */
+	left: 40px;
+}
+
+
+
+#row1 th:nth-child(1) , #row1 th:nth-child(6) {
+	padding-right: 5px;
+}
+
+#row1 th:nth-child(2) {	/* short */
+
+	color: red;
+
+	background-color: hsl(0, 100%, 99%);
+}
+
+#row1 th:nth-child(3) {  /* printed */
+
+	font-weight: lighter;
+	background-color: white  ;
+}
+
+
+#row1 th:nth-child(4) {	/* picking */
+
+	color: blue;
+
+	background-color: hsl(240, 100%, 94%);
+}
+
+#row1 th:nth-child(5) {  /* picked */
+
+	border-bottom: 1px dotted black ;
+	background-color: hsl(60, 100%, 50%) /* white */ ;
+}
+
+#row2 th:nth-child(2) {	/* packing */
+
+	color: orange;
+
+	background-color: hsl(38, 100%, 96%);
+}
+
+#row2 th:nth-child(3) {	/* packed */
+
+	color: green;
+
+	background-color: hsl(120, 100%, 96%);
+}
+
+#row2 th:nth-child(4) {	/* loaded */
+
+	color: grey;
+
+	background-color: hsl(0, 0%, 96%);
+}
+
+.s5 { /*short*/
+
+	font-weight: bolder;
+	background-color: hsl(0, 100%, 97%);
+	color: red;
+}
+
+.s6 { /*printed*/
+
+	font-weight: normal;
+	color: black;
+}
+
+.s7 { /*picking*/
+
+	font-weight: bolder;
+	background-color: hsl(240, 100%, 95%);
+	color: blue;
+}
+
+.s8 { /*picked*/
+
+	font-weight: bolder;
+	color: black;
+	background-color: hsl(60, 100%, 50%) ;
+}
+
+.s9 { /*packing*/
+
+	font-weight: bolder;
+	background-color: hsl(38, 100%, 96%);
+	color: orange;
+}
+
+.s10 { /*packed*/
+	font-weight: bolder;
+	background-color: hsl(120, 100%, 95%);
+	color: green;
+}
+
+.s11 { /*loaded  (drop) */
+
+	font-weight: bolder;
+	background-color: hsl(0, 0%, 96%);
+	color: grey;
+}
+
+li:not(first-child) {
+
+	border-width: 0px 1px 1px 1px;
+}
+
+li:first-child {
+
+	border: 2px solid black;
+
+	width: 11px;
+	font-weight: bold;
+}
+
+li:first-child , #row1 th:nth-child(7) , #row1 th:nth-child(8) ,
+#row2 th:nth-child(7) , #row2 th:nth-child(8) { 
+
+	/* Default colour scheme = "waiting" (white on red) */
+	
+	background-color: hsl(0, 100%, 60%);
+	color: white;
+	text-shadow: 1px 1px #000000;
+}
+
+
+li:first-child.s2 , #row1 th:nth-child(8) { /*ready*/
+
+	background-color: hsl(39, 100%, 50%);
+}
+
+li:first-child.s3 , #row2 th:nth-child(7) { /*loading*/
+
+	background-color: hsl(120, 100%, 50%);
+}
+
+li:first-child.s4 , #row2 th:nth-child(8) { /*loaded - (van) */
+
+	background-color: silver;
+
+	/* font colour more grey than white */
+	color: hsl(0, 0%, 90%) ;
+}
+
+#buffer {
+	border: 1px solid orange ;
+	width: 100% ;
+	height: 40px;
+	position: relative;
+	top: 1900px;
+	visibility: hidden;
+}
+
+#last_updated , #instructions {
+
+	/*width: 60% ;
+	border: 1px solid black;*/
+}
+
+#ajax_fm {
+	position: relative;
+}
+
+.ajax_busy {
+
+	background-color: black ;
+}
+
+.click_busy {
+
+	background-color: hsl(75, 100%, 80%) ;
+}
+
+
+.nothing_busy {
+
+	background-color: hsl(120,100%,99%) ;
+}
+
+#row4 , #row5 {
+
+	display: none ;
+ }
